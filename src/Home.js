@@ -4,7 +4,7 @@ import {BASE_URL} from './utils.js';
 import moment from 'moment';
 class Home extends Component {
     componentWillMount() {
-        console.log("")
+        console.log("here");
         let url = this.props.location.search;
         url = url.substring(url.indexOf('=')+1);
         console.log(`${BASE_URL}/evento/${url}`);
