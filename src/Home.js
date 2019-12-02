@@ -4,7 +4,6 @@ import {BASE_URL} from './utils.js';
 import moment from 'moment';
 class Home extends Component {
     componentWillMount() {
-        console.log("here");
         let url = this.props.location.search;
         url = url.substring(url.indexOf('=')+1);
         console.log(`${BASE_URL}/evento/${url}`);
@@ -13,12 +12,13 @@ class Home extends Component {
             method: 'get'
         }).then((res) => {
             console.log(res.data);
+            res.data.audios.reverse();
             this.setState({
                 userName: res.data.usuario[0].nombre,
                 audios: res.data.audios
             });
         }).catch((e) => {
-            console.log("error aqui", e.code);
+            console.log("error", e);
         })
     }
     render() {
